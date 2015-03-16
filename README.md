@@ -1,4 +1,5 @@
-# Rspec::Illustrate
+# Rspec::Illustrate [![Gem Version](https://badge.fury.io/rb/rspec-illustrate.svg)](http://badge.fury.io/rb/rspec-illustrate)
+
 
 This is an RSpec extension gem that allows you to define illustrative objects in
 your examples that will be forwarded to the output formatter. This will allow
