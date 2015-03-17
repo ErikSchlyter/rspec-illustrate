@@ -1,4 +1,4 @@
-module Rspec
+module RSpec
   module Illustrate
     VERSION = "0.1.1"
   end

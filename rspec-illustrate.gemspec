@@ -5,7 +5,7 @@ require 'rspec/illustrate/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "rspec-illustrate"
-  spec.version       = Rspec::Illustrate::VERSION
+  spec.version       = RSpec::Illustrate::VERSION
   spec.authors       = ["Erik Schlyter"]
   spec.email         = ["erik@erisc.se"]
 
