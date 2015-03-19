@@ -8,7 +8,7 @@ module RSpec
     # @return [Array<Hash>] The list of illustrations in the example, where each
     #         illustration is represented by a { Hash } containing its properties.
     def illustrations_of(notification)
-      notification.example.metadata[:illustrations]
+      notification.example.metadata[:illustrations] || []
     end
 
     module_function :illustrations_of
