@@ -9,7 +9,7 @@ module RSpec
       example_file = "spec/example.rb"
 
       given, result = execute_standalone_spec(example_file,
-        RSpec::Formatters::IllustratedDocumentationFormatter)
+        "RSpec::Formatters::IllustratedDocumentationFormatter")
 
       illustrate given, :label=>"Given the file '#{example_file}'"
       illustrate result, :label=>"Output from the formatter"
