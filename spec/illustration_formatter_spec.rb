@@ -2,7 +2,7 @@ require 'rspec/formatters/illustration_formatter'
 
 module RSpec
 
-  describe RSpec::Formatters do
+  describe Formatters do
     describe "#filter" do
 
       let(:test_illustrations) do
