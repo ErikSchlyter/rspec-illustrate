@@ -11,4 +11,5 @@ RSpec::Core::RakeTask.new(:html) do |t|
   t.rspec_opts = "--format RSpec::Formatters::IllustratedHtmlFormatter --out ./doc/specs.html"
 end
 
+task :test => :spec
 task :default => :spec
