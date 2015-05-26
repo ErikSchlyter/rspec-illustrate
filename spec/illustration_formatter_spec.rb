@@ -6,7 +6,6 @@ require 'spec_helper'
 module RSpec
 
   describe Formatters do
-    include FormatterSpecHelper
 
     let(:test_illustrations) do
       { :illustration_1 => { :content           => "This is illustration 1",
@@ -66,37 +65,40 @@ module RSpec
       end
     end
 
-    describe "#RSpec.configuration" do
-      let(:illustration)   { {:content => 'sample illustration content'} }
 
-      describe "#illustration_formatter" do
-        let!(:setting) { :illustration_formatter }
-        it_behaves_like "a formatter configuration" do
-          let(:expected) { "sample illustration content" }
-          let(:custom_expected)  { "custom <sample illustration content> custom"}
-        end
-      end
+  end
 
-      describe "#illustration_html_formatter" do
-        let!(:setting) { :illustration_html_formatter }
-        it_behaves_like "a formatter configuration" do
-          let(:expected) { "<dd><pre>sample illustration content</pre></dd>" }
-          let(:custom_expected)  { "custom <sample illustration content> custom" }
-        end
+  describe Core::Configuration do
+    include FormatterSpecHelper
 
-        it "should invoke #to_html instead of #to_s on content if present" do
-          class SomethingThatAsToHtmlMethod
-            def to_html
-              "<p>some html</p>"
-            end
-          end
-          illustration = {:content => SomethingThatAsToHtmlMethod.new}
+    let(:illustration)   { {:content => 'sample illustration content'} }
 
-          expect(formatter.call(illustration)).to eq("<dd><p>some html</p></dd>")
-        end
+    describe "#illustration_formatter" do
+      let!(:setting) { :illustration_formatter }
+      it_behaves_like "a formatter configuration" do
+        let(:expected) { "sample illustration content" }
+        let(:custom_expected)  { "custom <sample illustration content> custom"}
       end
     end
 
+    describe "#illustration_html_formatter" do
+      let!(:setting) { :illustration_html_formatter }
+      it_behaves_like "a formatter configuration" do
+        let(:expected) { "<dd><pre>sample illustration content</pre></dd>" }
+        let(:custom_expected)  { "custom <sample illustration content> custom" }
+      end
+
+      it "should invoke #to_html instead of #to_s on content if present" do
+        class SomethingThatAsToHtmlMethod
+          def to_html
+            "<p>some html</p>"
+          end
+        end
+        illustration = {:content => SomethingThatAsToHtmlMethod.new}
+
+        expect(formatter.call(illustration)).to eq("<dd><p>some html</p></dd>")
+      end
+    end
   end
 end
 
