@@ -8,19 +8,19 @@ module RSpec
   describe Formatters do
 
     let(:test_illustrations) do
-      { :illustration_1 => { :content           => "This is illustration 1",
+      { :illustration_1 => { :text              => "This is illustration 1",
                              :show_when_passed  => true,
                              :show_when_failed  => true,
                              :show_when_pending => true },
-        :illustration_2 => { :content           => "This is illustration 2",
+        :illustration_2 => { :text              => "This is illustration 2",
                              :show_when_passed  => false,
                              :show_when_failed  => true,
                              :show_when_pending => true },
-        :illustration_3 => { :content           => "This is illustration 3",
+        :illustration_3 => { :text              => "This is illustration 3",
                              :show_when_passed  => true,
                              :show_when_failed  => false,
                              :show_when_pending => true },
-        :illustration_4 => { :content           => "This is illustration 4",
+        :illustration_4 => { :text              => "This is illustration 4",
                              :show_when_passed  => true,
                              :show_when_failed  => true,
                              :show_when_pending => false}
@@ -71,7 +71,7 @@ module RSpec
   describe Core::Configuration do
     include FormatterSpecHelper
 
-    let(:illustration)   { {:content => 'sample illustration content'} }
+    let(:illustration)   { {:text => 'sample illustration content'} }
 
     describe "#illustration_formatter" do
       let!(:setting) { :illustration_formatter }
@@ -88,13 +88,8 @@ module RSpec
         let(:custom_expected)  { "custom <sample illustration content> custom" }
       end
 
-      it "should invoke #to_html instead of #to_s on content if present" do
-        class SomethingThatAsToHtmlMethod
-          def to_html
-            "<p>some html</p>"
-          end
-        end
-        illustration = {:content => SomethingThatAsToHtmlMethod.new}
+      it "should render content from hash key :html instead of :text if present" do
+        illustration[:html] = "<p>some html</p>"
 
         expect(formatter.call(illustration)).to eq("<dd><p>some html</p></dd>")
       end

@@ -16,7 +16,7 @@ RSpec.configure do |c|
                   label = illustration.has_key?(:label) ?
                     "--- #{illustration[:label].to_s} ---\n" : ""
 
-                  return label << illustration[:content].to_s
+                  return label << illustration[:text].to_s
                 })
 end
 

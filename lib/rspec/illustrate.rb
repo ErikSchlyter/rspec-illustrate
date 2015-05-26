@@ -12,7 +12,7 @@ module RSpec
     # @param args [Array<Hash, Symbol>] Additional options.
     # @return The given illustration object.
     def illustrate(content, *args)
-      illustration = { :content => content,
+      illustration = { :text => content,
                        :show_when_passed  => true,
                        :show_when_failed => true,
                        :show_when_pending => true }

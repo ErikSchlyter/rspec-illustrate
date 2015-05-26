@@ -32,7 +32,7 @@ module FormatterSpecHelper
 
     let(:custom_formatter) do
       lambda { |illustration|
-        return "custom <#{illustration[:content].to_s}> custom"
+        return "custom <#{illustration[:text].to_s}> custom"
       }
     end
 

@@ -10,11 +10,10 @@ RSpec.configure do |c|
                     html << "<span>#{illustration[:label].to_s}</span>"
                   end
 
-                  content = illustration[:content]
-                  if content.respond_to?(:to_html) then
-                    html << content.to_html
+                  if illustration[:html] then
+                    html << illustration[:html]
                   else
-                    html << "<pre>#{content.to_s}</pre>"
+                    html << "<pre>#{illustration[:text]}</pre>"
                   end
 
                   return html << "</dd>"

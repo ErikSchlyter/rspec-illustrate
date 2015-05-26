@@ -52,7 +52,7 @@ module RSpec
           it "contains the content and the default settings" do
             illustrate the_hash.pretty_inspect
 
-            expect(the_hash[:content]).to equal(my_illustration)
+            expect(the_hash[:text]).to equal(my_illustration)
           end
 
           context "when providing arguments in the 'illustrate' statement" do
