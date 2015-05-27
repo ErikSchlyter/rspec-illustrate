@@ -1,0 +1,4 @@
+<% if object[:rspec] && !object[:rspec].empty? %>
+  <h2>Specifications</h2>
+  <%= object[:rspec].collect{|example| example.to_s}.join %>
+<% end %>

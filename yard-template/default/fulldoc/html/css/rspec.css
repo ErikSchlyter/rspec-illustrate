@@ -1,0 +1,50 @@
+.rspec_example_group {
+}
+
+.rspec_example_group_title {
+  padding: 0px 0px 3px 7px;
+  margin: 3px 0px 3px 0px;
+}
+
+.rspec_example_group_children {
+  padding: 0px 0px 0px 0px;
+  margin: 3px 0px 10px 20px;
+  border-left: lightgrey dotted 1px;
+}
+
+.rspec_example_passed, .rspec_example_failed, .rspec_example_pending {
+  padding: 2px 0px 2px 7px;
+  margin: 0px 0px 1px 0px;
+}
+
+.rspec_example_passed {
+  background-color:#E0FFE0;
+}
+
+.rspec_example_pending {
+  background-color:#FFFFE0;
+}
+
+.rspec_example_failed {
+  background-color:#FFA0A0;
+}
+
+.rspec_example_paragraph {
+  margin:0;
+}
+
+.rspec_illustration {
+  margin: 10px 0px 0px 24px;
+}
+
+.rspec_illustration_label {
+  font-style: italic;
+  margin: 0px 0px 0px 0px;
+}
+
+.rspec_illustration_content {
+  margin: 7px 7px 7px 0px;
+  padding: 4px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: rgba(0, 0, 0, 0.1) solid 1px;
+}

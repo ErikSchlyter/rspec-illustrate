@@ -1,0 +1,6 @@
+<% if object[:rspec] && !object[:rspec].empty? %>
+<div class="tags">
+  <p class="tag_title">Specifications:</p>
+  <%= object[:rspec].collect{|example| example.to_s}.join %>
+</div>
+<% end %>

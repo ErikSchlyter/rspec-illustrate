@@ -68,14 +68,55 @@ Array
     [1, 2, 3]
 ```
 
+## Import test results and illustrations into YARD
+
+RSpec-Illustrate comes with a template for YARD and an RSpec formatter that
+outputs a specific HTML format that the template can import.
+
+To create the test report you have to execute RSpec with the specific formatter.
+You need to add the following to your `Rakefile`:
+```ruby
+require "rspec/core/rake_task"
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.rspec_opts = "--format RSpec::Formatters::YARD --out ./doc/api.rspec"
+end
+```
+
+Keep in mind that the file must end with `.rspec` in order for the template to
+understand it's an RSpec output file. You load the template by invoking `require
+rspec/illustrate/yard` and you import it by giving it to YARD as a normal input
+file. Add the following to your `Rakefile`:
+
+```ruby
+require 'yard'
+require 'rspec/illustrate/yard'
+YARD::Rake::YardocTask.new(:doc) do |t|
+    t.files   = ['lib/**/*.rb', 'doc/api.rspec']
+end
+task :doc => [:spec]
+```
+
+You can also include it as an extra file if you want to view it as a complete
+test report (it is HTML after all). Simply add it to the list of extra files by
+adding it after the `-` sign:
+
+```ruby
+require 'yard'
+require 'rspec/illustrate/yard'
+YARD::Rake::YardocTask.new(:doc) do |t|
+    t.files   = ['lib/**/*.rb', 'doc/api.rspec', '-', 'doc/api.rspec']
+end
+task :doc => [:spec]
+```
+
 
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To
-release a new version, update the version number in `version.rb`, and then run
-`bundle exec rake release` to create a git tag for the version, push git commits
+To install this gem onto your local machine, run `rake install`. To release a
+new version, update the version number in `version.rb`, and then run `rake
+release` to create a git tag for the version, push git commits
 and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
