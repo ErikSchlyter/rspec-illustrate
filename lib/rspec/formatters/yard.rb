@@ -92,10 +92,10 @@ module RSpec
         end
 
         if illustration.has_key?(:html) then
-          node.add_element(REXML::Text.new(illustration[:html], true, nil, true))
+          node.add_element(REXML::Document.new(illustration[:html]))
         else
           node.add_element("pre", {'class'=>'rspec_illustration_content'}).text =
-            REXML::Text.new(illustration[:text], true, nil, true)
+            REXML::Text.new(illustration[:text], true, nil, false)
         end
 
         node
