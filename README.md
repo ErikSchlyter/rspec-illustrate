@@ -1,10 +1,9 @@
-# RSpec::Illustrate [![Gem Version](https://badge.fury.io/rb/rspec-illustrate.svg)](http://badge.fury.io/rb/rspec-illustrate)
+# RSpec-illustrate [![Gem Version](https://badge.fury.io/rb/rspec-illustrate.svg)](http://badge.fury.io/rb/rspec-illustrate)
 
-
-This is an RSpec extension gem that allows you to define illustrative objects in
-your examples that will be forwarded to the output formatter. This will allow
-your output spec to become more readable, illustrative, and explanatory.
-
+A plugin to RSpec and YARD that allows you to define illustrative objects in
+your examples that will be forwarded to the output formatter. The results can be
+imported into YARD, which makes your generated specs and documentation more
+readable, illustrative, and explanatory.
 
 ## Installation
 
@@ -41,9 +40,9 @@ describe Array do
       expected = [1, 2, 3]
       actual = given.sort
 
-      illustrate given.to_s, :label=>"Given the array"
-      illustrate expected.to_s, :label=>"After sort it looks like this"
-      illustrate actual.to_s, :show_when_passed=>false
+      illustrate given, :label=>"Given the array"
+      illustrate expected, :label=>"After sort it looks like this"
+      illustrate actual, :show_when_passed=>false
 
       expect(actual).to eq(expected)
     end

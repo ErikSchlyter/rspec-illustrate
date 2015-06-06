@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Erik Schlyter"]
   spec.email         = ["erik@erisc.se"]
 
-  spec.summary       = %q{RSpec extension gem for including illustrative objects in your specs.}
+  spec.summary       = %q{Extension gem to RSpec (and YARD) for including illustrative objects in your specs.}
   spec.description   = %q{A plugin to RSpec and YARD that allows you to define illustrative objects in your examples that will be forwarded to the output formatter. The results can be imported into YARD, which makes your generated specs and documentation more readable, illustrative, and explanatory.}
   spec.homepage      = "https://github.com/ErikSchlyter/rspec-illustrate"
   spec.license       = "MIT"
