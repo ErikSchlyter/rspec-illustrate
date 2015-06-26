@@ -1,7 +1,6 @@
 require "bundler/gem_tasks"
 require 'rake/clean'
 Bundler.setup
-Bundler::GemHelper.install_tasks
 
 require "rspec/core/rake_task"
 desc "Execute RSpec and create a test report at ./doc/api.rspec."
