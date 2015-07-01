@@ -5,6 +5,10 @@ your examples that will be forwarded to the output formatter. The results can be
 imported into YARD, which makes your generated specs and documentation more
 readable, illustrative, and explanatory.
 
+Source code at [https://github.com/ErikSchlyter/rspec-illustrate](https://github.com/ErikSchlyter/rspec-illustrate).
+
+Documentation at [http://www.erisc.se/rspec-illustrate](http://www.erisc.se/rspec-illustrate).
+
 ## Installation
 
 Add this line to your application's Gemfile:
