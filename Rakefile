@@ -1,20 +1,20 @@
 require "bundler/gem_tasks"
-require 'rake/clean'
-Bundler.setup
-
 require "rspec/core/rake_task"
-desc "Execute RSpec and create a test report at ./doc/api.rspec."
-RSpec::Core::RakeTask.new(:spec) do |t|
-  t.rspec_opts = "--format RSpec::Formatters::YARD --out ./doc/api.rspec"
-end
-
-require 'yard'
+require 'yard/rake/yardoc_task'
 require 'rspec/illustrate/yard'
+require 'rake/clean'
+
+desc "Execute RSpec and create a test report at ./tmp/api.rspec."
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.rspec_opts = '--format RSpec::Formatters::IllustratedDocumentationFormatter --format RSpec::Formatters::YARD --out tmp/api.rspec'
+end
+CLEAN.include('tmp')
+
 desc "Create documentation."
 YARD::Rake::YardocTask.new(:doc) do |t|
-    t.files   = ['lib/**/*.rb', 'doc/api.rspec', '-', 'doc/api.rspec']
+    t.files   = ['lib/**/*.rb', 'tmp/api.rspec', '-', 'tmp/api.rspec']
 end
-CLEAN.include("doc")
+CLOBBER.include("doc")
 CLEAN.include(".yardoc")
 task :doc => [:spec]
 

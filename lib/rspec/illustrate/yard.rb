@@ -1,3 +1,6 @@
+require 'yard'
+require 'rspec/illustrate/version'
+require 'rexml/document'
 
 # Register the template
 YARD::Templates::Engine.register_template_path File.join(File.dirname(__FILE__), '..', '..', '..', 'yard-template')
@@ -5,8 +8,6 @@ YARD::Templates::Engine.register_template_path File.join(File.dirname(__FILE__),
 # extra files (like test reports and such).
 YARD::Templates::Helpers::MarkupHelper::MARKUP_EXTENSIONS[:html] << "rspec"
 
-require 'rspec/illustrate/version'
-require 'rexml/document'
 
 module YARD
   module Parser
