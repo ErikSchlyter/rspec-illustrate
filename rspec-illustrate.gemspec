@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.require_paths = ["lib"]
 
-  spec.required_ruby_version = '>= 1.9.3'
+  spec.required_ruby_version = ">= #{IO.read('.ruby-version')}"
   spec.add_dependency 'rspec-core', '~> 3.2'
   spec.add_dependency 'rspec-expectations', '~> 3.2'
   spec.add_development_dependency "bundler", "~> 1.8"
